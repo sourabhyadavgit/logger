@@ -2,6 +2,9 @@ node {
   stage('SCM') {
     checkout scm
   }
+  environment {
+        SONAR_HOST = "http://host.docker.internal:9000" // Replace with your SonarQube server URL
+    }
   stage('SonarQube Analysis2') {
     def scannerHome = tool 'Sonarqubelocaljenkinspodbasedbinary';
     withSonarQubeEnv() {
